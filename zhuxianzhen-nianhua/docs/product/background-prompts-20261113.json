@@ -1,0 +1,106 @@
+{
+  "mode": "built-in imagegen",
+  "shared": "Use case: stylized-concept. Asset type: one original square 1:1 digital New Year print creation-canvas background for the HarmonyOS app 朱仙镇年画. Scene: {SCENE} Style: premium modern guochao anime-inflected illustration with confident woodblock outlines, subtle overprinted mineral-pigment edges and visible handmade paper or material texture. Brand family cinnabar #A52C32, gold #D6A64D, rice-paper #F7EEDB, jade #527E70; theme-appropriate accents permitted. Compose real thematic detail mostly around the outer 20 percent; central 60 percent remains usable for user-added character and text layers, with interesting tactile material instead of a flat placeholder. This is a modern original design, not a reproduction of a historical relic. No lettering, calligraphy, digits, logos, watermark, UI controls, photorealistic people or repeated stock icons. Full opaque background.",
+  "specs": [
+    [
+      "plum_paper",
+      "宣纸梅影",
+      "Warm handmade ivory xuan paper with a carefully drawn vermilion plum branch sweeping along one upper corner and a few fallen petals near the lower edge. Quiet, delicate, tactile ink edges."
+    ],
+    [
+      "cinnabar_cloud",
+      "朱砂云锦",
+      "A cinnabar red woodblock ground with elegant gold-and-ivory auspicious cloud bands framing the top and bottom, richly detailed carved lines, center intentionally calmer and lighter red."
+    ],
+    [
+      "jade_ruyi",
+      "青绿如意",
+      "Muted jade green paper with ivory ruyi-shaped scrolling corner ornaments and discreet golden accents, elegant asymmetrical border with generous center space."
+    ],
+    [
+      "peony_spring",
+      "牡丹迎春",
+      "Coral and cinnabar peony blossoms with deep jade leaves at two opposing corners, buttery ivory central paper, carefully layered rounded petals in refined guochao anime illustration."
+    ],
+    [
+      "fish_lotus",
+      "连年有余",
+      "A playful pair of goldfish among pink lotus blooms and blue-green leaves around the bottom edge of an ivory pond-like paper composition, airy ripples; upper and central area spacious."
+    ],
+    [
+      "pine_crane",
+      "松鹤清和",
+      "A dark green pine branch at the top edge and a graceful white crane with vermilion crown standing at the lower corner, warm pale sky and cloud texture, quiet poetic woodblock illustration."
+    ],
+    [
+      "lantern_night",
+      "上元灯夜",
+      "Deep indigo evening paper with several warm cinnabar lanterns suspended around the upper corners and small golden light motes along the outer edge, calm luminous center, sophisticated festive night mood."
+    ],
+    [
+      "mountain_cloud",
+      "青山云岚",
+      "Layered jade mountains and cream cloud swirls rising from the lower border, warm rice paper sky above, bold woodcut contours, modern refined Chinese landscape illustration."
+    ],
+    [
+      "window_papercut",
+      "窗花纳福",
+      "Original red paper-cut lattice and floral window-frame border on warm ivory paper, clear central rectangular opening, crisp tactile layered-paper edges and delicate symmetrical folk-art details."
+    ],
+    [
+      "carved_wood",
+      "木版余温",
+      "Warm amber pearwood texture with carefully carved floral grooves limited to the outer frame, gently lit wood grain at the center, tactile premium printing-block surface, no tools or characters."
+    ],
+    [
+      "golden_waves",
+      "金波流云",
+      "Elegant gold and jade water-wave bands curving along the bottom and side borders on soft cream paper, wave details like carved woodblock strokes, spacious calm center."
+    ],
+    [
+      "porcelain_blue",
+      "青花雅韵",
+      "Cobalt blue and ivory ceramic-inspired scrolling lotus border over subtly textured warm paper, clear central area, delicate hand-painted indigo contours and restrained gold details."
+    ],
+    [
+      "spring_kites",
+      "纸鸢春晴",
+      "Pale warm sky with two original swallow-shaped and butterfly-shaped traditional kites near upper corners, fine flowing strings and soft cloud wisps along outer edges, center uncluttered."
+    ],
+    [
+      "peach_blossom",
+      "桃花报春",
+      "Soft blush ivory paper framed by two peach blossom branches with red buds and jade leaves, delicate petal movement, modern anime color shading mixed with woodblock line texture."
+    ],
+    [
+      "zodiac_ring",
+      "生肖团圆",
+      "An original circular border of twelve tiny friendly Chinese zodiac animal silhouettes as carved folk-art motifs, each distinct animal once, cinnabar gold jade accents around a large blank ivory central disc. No labels or writing."
+    ],
+    [
+      "festive_knot",
+      "吉结良缘",
+      "Handwoven vermilion Chinese decorative knots and jade tassels arranged along the outer side borders, cream paper center, intricate but clear braided cord illustration, warm celebratory mood."
+    ],
+    [
+      "ink_paper",
+      "墨韵新章",
+      "Warm handmade paper with expressive charcoal ink-brush sweeps limited to two corners, fine flecks of cinnabar mineral pigment and subtle gold leaf around the edges, open luminous central area; genuine material depth."
+    ],
+    [
+      "ginkgo_gold",
+      "银杏秋金",
+      "Fan-shaped golden ginkgo leaves with warm amber stems layered along one side and the bottom edge, ivory rice paper center, elegant hand-printed texture and clear leaf vein details."
+    ],
+    [
+      "pomegranate",
+      "榴开百子",
+      "A ripe open pomegranate and leafy branch at one lower corner, ruby seeds clearly drawn, small complementary flowers along the far upper edge, warm paper center and restrained jade-and-gold accents."
+    ],
+    [
+      "peach_longevity",
+      "寿桃呈祥",
+      "Rounded ripe pink peaches with dark jade leaves resting above soft golden cloud curls along the bottom edge, pale cream background and a gentle distant mountain hint, spacious creative center."
+    ]
+  ]
+}

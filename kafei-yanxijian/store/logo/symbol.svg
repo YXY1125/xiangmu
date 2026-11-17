@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="none">
+  <path id="plate" fill="#ffffff" d="M298 245 H726 Q779 245 779 298 V726 Q779 779 726 779 H298 Q245 779 245 726 V298 Q245 245 298 245 Z"/>
+  <text x="512" y="514" text-anchor="middle" font-size="331" font-weight="600" font-family="PingFang SC, MiSans, sans-serif">咖</text>
+</svg>

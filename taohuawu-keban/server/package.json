@@ -1,0 +1,11 @@
+{
+  "name": "thwkb-art-business",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node ../tools/build_server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "dev": "node dev.mjs --development-file-store"
+  }
+}

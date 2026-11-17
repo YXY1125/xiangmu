@@ -1,0 +1,15 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {spawn} from 'node:child_process';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..'),repo=path.resolve(root,'../..');
+const command=['platform/admin/node_modules/vue-tsc/bin/vue-tsc.js','--noEmit','--project','platform/admin/tsconfig.json'];
+const child=spawn(process.execPath,command,{cwd:repo,windowsHide:true,stdio:['ignore','pipe','pipe']});
+let log='';for(const stream of [child.stdout,child.stderr])stream.on('data',chunk=>{log+=chunk;});
+const exitCode=await new Promise(resolve=>child.once('exit',resolve));
+const own=log.split(/\r?\n/).filter(line=>/thwkb-client\.ts|ThwkbOperationsView\.vue|ThwkbCanvas\.vue/.test(line));
+const directory=path.join(root,'docs/validation/admin');await fs.mkdir(directory,{recursive:true});
+await fs.writeFile(path.join(directory,'shared-typecheck.log'),log);
+const report={at:new Date().toISOString(),command:`node ${command.join(' ')}`,exitCode,appDiagnostics:own,scope:'actual shared Vue project check; unrelated existing errors are retained, not suppressed or fixed'};
+await fs.writeFile(path.join(directory,'shared-typecheck.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report));process.exitCode=exitCode||0;

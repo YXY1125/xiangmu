@@ -1,0 +1,24 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/SearchPage",
+    "pages/KnowledgeDetailPage",
+    "pages/EquipmentDetailPage",
+    "pages/EquipmentComparePage",
+    "pages/BrewingGuidePage",
+    "pages/BrewCalculatorPage",
+    "pages/BrewRecordEditPage",
+    "pages/BrewHistoryPage",
+    "pages/RecipeDetailPage",
+    "pages/RecipeEditPage",
+    "pages/FlavorEvaluationPage",
+    "pages/FlavorReportPage",
+    "pages/ProfilePage",
+    "pages/GrowthPage",
+    "pages/LearningRecordPage",
+    "pages/FavoritePage",
+    "pages/SettingsPage",
+    "pages/UserAgreementPage",
+    "pages/PrivacyPolicyPage"
+  ]
+}

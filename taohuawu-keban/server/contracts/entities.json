@@ -1,0 +1,1320 @@
+[
+  {
+    "name": "UserProfile",
+    "table": "thwkb_user_profiles",
+    "description": "平台认证账号的本应用资料扩展，不承担登录认证",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "nickname",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "avatarAssetId",
+        "type": "uuid"
+      },
+      {
+        "name": "bio",
+        "type": "string"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "userId"
+      ]
+    ]
+  },
+  {
+    "name": "Category",
+    "table": "thwkb_categories",
+    "description": "图鉴、知识、素材与作品的公共分类",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "scope",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "character",
+          "knowledge",
+          "material",
+          "artwork"
+        ]
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "sortOrder",
+        "type": "int",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "draft",
+          "published",
+          "offline"
+        ]
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "scope",
+        "status"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "scope",
+        "name"
+      ]
+    ]
+  },
+  {
+    "name": "Character",
+    "table": "thwkb_characters",
+    "description": "原创角色与传统题材动漫化设定，史实与原创说明分字段",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "categoryId",
+        "type": "uuid",
+        "required": true,
+        "ref": "Category"
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "series",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "rolePosition",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appearance",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "palette",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "costume",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "personality",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "culturalInspiration",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "originalStory",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "historicalSourceIds",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "heroAssetId",
+        "type": "uuid",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "draft",
+          "reviewing",
+          "published",
+          "offline"
+        ]
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "categoryId",
+        "status"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "series",
+        "status"
+      ]
+    ]
+  },
+  {
+    "name": "Topic",
+    "table": "thwkb_topics",
+    "description": "首页与广场主题策展",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "summary",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "coverAssetId",
+        "type": "uuid",
+        "required": true
+      },
+      {
+        "name": "contentRefs",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "draft",
+          "published",
+          "offline"
+        ]
+      },
+      {
+        "name": "publishAt",
+        "type": "datetime"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "status",
+        "publishAt"
+      ]
+    ]
+  },
+  {
+    "name": "KnowledgeArticle",
+    "table": "thwkb_knowledge_articles",
+    "description": "非遗知识文章，必须保存来源与事实核验状态",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "categoryId",
+        "type": "uuid",
+        "required": true,
+        "ref": "Category"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "summary",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "body",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "coverAssetId",
+        "type": "uuid",
+        "required": true
+      },
+      {
+        "name": "sourceRecords",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "factCheckStatus",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "pending",
+          "verified",
+          "rejected"
+        ]
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "draft",
+          "reviewing",
+          "published",
+          "offline"
+        ]
+      },
+      {
+        "name": "publishedAt",
+        "type": "datetime"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "categoryId",
+        "status"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "factCheckStatus",
+        "status"
+      ]
+    ]
+  },
+  {
+    "name": "Material",
+    "table": "thwkb_materials",
+    "description": "工坊角色、背景、贴纸、印章和字体素材及授权记录",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "categoryId",
+        "type": "uuid",
+        "required": true,
+        "ref": "Category"
+      },
+      {
+        "name": "kind",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "character",
+          "background",
+          "sticker",
+          "seal",
+          "font",
+          "frame"
+        ]
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "assetId",
+        "type": "uuid",
+        "required": true
+      },
+      {
+        "name": "canvasMetadata",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "copyrightOwner",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "sourceType",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "original",
+          "licensed"
+        ]
+      },
+      {
+        "name": "licenseRecord",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "draft",
+          "rights_pending",
+          "reviewing",
+          "published",
+          "offline"
+        ]
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "kind",
+        "status"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "categoryId",
+        "status"
+      ]
+    ]
+  },
+  {
+    "name": "Template",
+    "table": "thwkb_templates",
+    "description": "工坊画布模板及可用素材约束",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "name",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "coverAssetId",
+        "type": "uuid",
+        "required": true
+      },
+      {
+        "name": "aspectRatio",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "canvasWidth",
+        "type": "int",
+        "required": true
+      },
+      {
+        "name": "canvasHeight",
+        "type": "int",
+        "required": true
+      },
+      {
+        "name": "baseLayers",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "allowedMaterialKinds",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "draft",
+          "rights_pending",
+          "published",
+          "offline"
+        ]
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "status"
+      ]
+    ]
+  },
+  {
+    "name": "Creation",
+    "table": "thwkb_creations",
+    "description": "用户可恢复编辑的私有创作记录",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "templateId",
+        "type": "uuid",
+        "required": true,
+        "ref": "Template"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "draft",
+          "completed",
+          "archived"
+        ]
+      },
+      {
+        "name": "canvasState",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "previewAssetId",
+        "type": "uuid"
+      },
+      {
+        "name": "revision",
+        "type": "int",
+        "required": true
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "status",
+        "updatedAt"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "id"
+      ]
+    ]
+  },
+  {
+    "name": "Artwork",
+    "table": "thwkb_artworks",
+    "description": "官方作品或由用户创作生成的不可变展示版本",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "ownerUserId",
+        "type": "string"
+      },
+      {
+        "name": "creationId",
+        "type": "uuid",
+        "ref": "Creation"
+      },
+      {
+        "name": "sourceType",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "official",
+          "user_original"
+        ]
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "coverAssetId",
+        "type": "uuid",
+        "required": true
+      },
+      {
+        "name": "copyrightDeclaration",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "rightsEvidence",
+        "type": "json",
+        "required": true
+      },
+      {
+        "name": "visibility",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "private",
+          "public"
+        ]
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "ownerUserId",
+        "createdAt"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "sourceType",
+        "visibility"
+      ]
+    ]
+  },
+  {
+    "name": "Publication",
+    "table": "thwkb_publications",
+    "description": "作品公开发布与审核状态流转",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "artworkId",
+        "type": "uuid",
+        "required": true,
+        "ref": "Artwork"
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "draft",
+          "submitted",
+          "approved",
+          "rejected",
+          "offline"
+        ]
+      },
+      {
+        "name": "reviewReason",
+        "type": "text"
+      },
+      {
+        "name": "submittedAt",
+        "type": "datetime"
+      },
+      {
+        "name": "reviewedAt",
+        "type": "datetime"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "status",
+        "reviewedAt"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "status"
+      ]
+    ]
+  },
+  {
+    "name": "Favorite",
+    "table": "thwkb_favorites",
+    "description": "当前用户对公开内容的唯一收藏关系",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "targetType",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "character",
+          "knowledge",
+          "artwork"
+        ]
+      },
+      {
+        "name": "targetId",
+        "type": "uuid",
+        "required": true
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "targetType",
+        "targetId"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "createdAt"
+      ]
+    ]
+  },
+  {
+    "name": "Like",
+    "table": "thwkb_likes",
+    "description": "当前用户对公开作品的唯一点赞关系",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "artworkId",
+        "type": "uuid",
+        "required": true,
+        "ref": "Artwork"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "artworkId"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "artworkId"
+      ]
+    ]
+  },
+  {
+    "name": "BrowseHistory",
+    "table": "thwkb_browse_history",
+    "description": "按账号记录最近浏览并对同一目标更新访问时间",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "targetType",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "character",
+          "knowledge",
+          "artwork"
+        ]
+      },
+      {
+        "name": "targetId",
+        "type": "uuid",
+        "required": true
+      },
+      {
+        "name": "viewCount",
+        "type": "int",
+        "required": true
+      },
+      {
+        "name": "lastViewedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "targetType",
+        "targetId"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "lastViewedAt"
+      ]
+    ]
+  },
+  {
+    "name": "Report",
+    "table": "thwkb_reports",
+    "description": "用户对公开作品的举报与复核记录",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "artworkId",
+        "type": "uuid",
+        "required": true,
+        "ref": "Artwork"
+      },
+      {
+        "name": "reasonCode",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "description",
+        "type": "text"
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "submitted",
+          "reviewing",
+          "resolved",
+          "dismissed"
+        ]
+      },
+      {
+        "name": "resolution",
+        "type": "text"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "status",
+        "createdAt"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "artworkId"
+      ]
+    ]
+  },
+  {
+    "name": "Notification",
+    "table": "thwkb_notifications",
+    "description": "审核、互动与系统通知，属于当前用户",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "kind",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "review",
+          "interaction",
+          "system"
+        ]
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "body",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "targetRoute",
+        "type": "string"
+      },
+      {
+        "name": "readAt",
+        "type": "datetime"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "readAt",
+        "createdAt"
+      ]
+    ]
+  },
+  {
+    "name": "Feedback",
+    "table": "thwkb_feedback",
+    "description": "当前用户提交的产品反馈与管理员回复，不公开用户个人信息",
+    "fields": [
+      {
+        "name": "id",
+        "type": "uuid",
+        "required": true,
+        "unique": true
+      },
+      {
+        "name": "tenantId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "appId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "userId",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "category",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "suggestion",
+          "bug",
+          "content",
+          "other"
+        ]
+      },
+      {
+        "name": "body",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "status",
+        "type": "enum",
+        "required": true,
+        "enumValues": [
+          "submitted",
+          "reviewing",
+          "replied",
+          "closed"
+        ]
+      },
+      {
+        "name": "reply",
+        "type": "text"
+      },
+      {
+        "name": "createdAt",
+        "type": "datetime",
+        "required": true
+      },
+      {
+        "name": "updatedAt",
+        "type": "datetime",
+        "required": true
+      }
+    ],
+    "indexes": [
+      [
+        "tenantId",
+        "appId",
+        "userId",
+        "createdAt"
+      ],
+      [
+        "tenantId",
+        "appId",
+        "status",
+        "updatedAt"
+      ]
+    ]
+  }
+]

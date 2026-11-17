@@ -1,0 +1,9 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "井良智企管家主模块" },
+    { "name": "EntryAbility_desc", "value": "企业数字化管理入口" },
+    { "name": "EntryAbility_label", "value": "花艺体验所" },
+    { "name": "internet_reason", "value": "用于连接业务服务与AI分析接口" },
+    { "name": "app_tracking_reason", "value": "用于获取匿名设备标识，统计应用活跃情况。拒绝不影响核心功能使用。" }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "contentVersion": "1.1.0",
+  "knowledge": [
+    { "id": "origin-ethiopia", "category": "产地", "title": "埃塞俄比亚：从产区理解花香与柑橘表达", "summary": "海拔、品种与处理方式共同影响杯中表现。", "body": "埃塞俄比亚拥有多样的地方品种与微气候。水洗批次常呈现较清晰的花香、柑橘与茶感，日晒批次可能更突出成熟果香；这些描述是常见倾向，不是对每一批咖啡的保证。", "sourceNote": "发布前由内容编辑依据具体批次资料复核" },
+    { "id": "origin-colombia", "category": "产地", "title": "哥伦比亚：山地微气候与多样产区", "summary": "南北跨度与山地地形使不同产区具有不同采收节奏。", "body": "产国名称不能替代产区、品种、处理与批次信息。比较咖啡时，应记录实际标签和杯中表现，避免把国家名称等同于固定风味。", "sourceNote": "产区入门内容" },
+    { "id": "process-washed", "category": "处理", "title": "水洗处理：先分清流程，再讨论风味", "summary": "去除果皮果肉、发酵分解黏液并清洗干燥，是常见水洗流程的核心。", "body": "发酵方式、用水、干燥条件与后续仓储都会影响结果。记录咖啡时应同时保存具体批次信息，避免只用处理法推断全部风味。", "sourceNote": "通用工艺入门内容" },
+    { "id": "process-natural", "category": "处理", "title": "日晒处理：干燥管理比标签更重要", "summary": "咖啡果实完整干燥，翻动、筛选和天气管理影响均匀度。", "body": "成熟度不一或干燥失控可能产生不均匀和杂味。成熟果香是常见表达，但不能据此认定所有日晒咖啡都相同。", "sourceNote": "通用工艺入门内容" },
+    { "id": "process-honey", "category": "处理", "title": "蜜处理并不是加入蜂蜜", "summary": "名称来自保留黏液层干燥时的触感与外观。", "body": "黏液保留比例、翻动频率、气候和干燥速度共同影响结果；不同产区的颜色分类也不一定采用统一标准。", "sourceNote": "通用工艺入门内容" },
+    { "id": "roast-light", "category": "烘焙", "title": "浅烘焙的内部发展与可溶性", "summary": "豆表颜色只是线索，不能单独判断是否发展充分。", "body": "生豆密度、烘焙机热传递和发展阶段会共同影响可溶性。冲煮时应从研磨、温度和流速逐步校准。", "sourceNote": "烘焙与冲煮基础" },
+    { "id": "brew-ratio", "category": "冲煮", "title": "粉水比是起点，不是答案", "summary": "同一粉水比下，研磨、温度、注水和时间仍会改变萃取与浓度。", "body": "15g 咖啡粉配 225ml 水对应 1:15。调整时一次只改变少量关键变量，并保存实际结果，才能判断哪项变化带来了风味差异。", "sourceNote": "基础冲煮方法论" },
+    { "id": "brew-espresso", "category": "冲煮", "title": "意式浓缩：先建立可复现基线", "summary": "粉量、液重与时间是调试起点，而不是品质结论。", "body": "固定粉量和目标液重后，以流速和杯中酸甜苦为依据小步调整研磨。粉碗、布粉、温度和咖啡状态同样会影响结果。", "sourceNote": "基础冲煮方法论" },
+    { "id": "flavor-acidity", "category": "风味", "title": "描述酸度的强度、质地与联想", "summary": "酸度不只分为喜欢或不喜欢。", "body": "可分别记录酸度强度、触感、成熟度与水果联想，并把个人偏好与维度强度分开。应用内评分是个人记录，不替代专业杯测标准。", "sourceNote": "感官记录入门" },
+    { "id": "bean-species", "category": "豆种", "title": "阿拉比卡、卡内弗拉与利比里卡", "summary": "物种名称不能直接等同于品质或单一风味。", "body": "遗传、种植环境、采收成熟度、处理、烘焙与冲煮共同塑造杯中表现。商业名称可能简化物种和品种关系。", "sourceNote": "咖啡植物学入门" }
+  ],
+  "origins": [
+    { "id": "ethiopia", "name": "埃塞俄比亚", "geography": "东非高地，多样微气候与地方品种", "altitude": "常见精品产区约 1500–2300m", "varieties": ["地方品种群", "74110", "74112"], "processes": ["水洗", "日晒"], "flavorNotes": ["花香", "柑橘", "茶感"], "note": "具体批次需以生产者资料为准" },
+    { "id": "colombia", "name": "哥伦比亚", "geography": "安第斯山地，多产区与多采收季", "altitude": "常见种植区约 1200–2200m", "varieties": ["卡杜拉", "卡斯蒂略", "铁皮卡"], "processes": ["水洗", "日晒", "发酵实验批次"], "flavorNotes": ["柑橘", "焦糖", "核果"], "note": "产区差异明显" },
+    { "id": "brazil", "name": "巴西", "geography": "产区广阔，机械化与庄园生产并存", "altitude": "常见精品产区约 900–1400m", "varieties": ["黄波旁", "卡杜艾", "蒙多诺沃"], "processes": ["日晒", "半水洗", "水洗"], "flavorNotes": ["坚果", "巧克力", "焦糖"], "note": "不以国家标签替代批次信息" },
+    { "id": "kenya", "name": "肯尼亚", "geography": "东非高原，合作社与小农体系常见", "altitude": "常见精品产区约 1400–2100m", "varieties": ["SL28", "SL34", "Ruiru 11"], "processes": ["水洗"], "flavorNotes": ["黑加仑", "柑橘", "明亮酸质"], "note": "物理分级不直接等同杯中品质" },
+    { "id": "panama", "name": "巴拿马", "geography": "西部高地火山土壤与微气候突出", "altitude": "常见精品产区约 1200–2000m", "varieties": ["瑰夏", "卡杜拉", "卡杜艾"], "processes": ["水洗", "日晒", "蜜处理"], "flavorNotes": ["花香", "柑橘", "热带水果"], "note": "不提供品牌、庄园价格信息" },
+    { "id": "guatemala", "name": "危地马拉", "geography": "火山、高原与多样降雨形成多产区", "altitude": "常见精品产区约 1300–2000m", "varieties": ["波旁", "卡杜拉", "卡杜艾"], "processes": ["水洗", "日晒"], "flavorNotes": ["可可", "香料", "核果"], "note": "具体风味依批次变化" },
+    { "id": "indonesia", "name": "印度尼西亚", "geography": "群岛产区，气候湿润且处理方式多样", "altitude": "常见精品产区约 1000–1800m", "varieties": ["铁皮卡系", "卡蒂姆系", "地方品种"], "processes": ["湿刨", "水洗", "日晒"], "flavorNotes": ["香料", "草本", "醇厚"], "note": "湿刨与水洗不可混同" },
+    { "id": "costa-rica", "name": "哥斯达黎加", "geography": "中美洲山地，多火山土壤与微型处理厂", "altitude": "常见精品产区约 1200–1900m", "varieties": ["卡杜拉", "卡杜艾", "Villa Sarchi"], "processes": ["水洗", "蜜处理", "日晒"], "flavorNotes": ["柑橘", "蜂蜜", "核果"], "note": "蜜处理颜色命名并非全球统一标准" }
+  ],
+  "beans": [
+    { "id": "arabica", "name": "阿拉比卡", "species": "Coffea arabica", "summary": "包含众多品种，不能把物种名称直接当作单一风味描述。" },
+    { "id": "canephora", "name": "咖啡卡内弗拉（常称罗布斯塔）", "species": "Coffea canephora", "summary": "通常具有不同栽培特征与较高咖啡因含量，品质仍取决于生产与处理。" },
+    { "id": "liberica", "name": "利比里卡", "species": "Coffea liberica", "summary": "植株与果实形态具有自身特征，市场占比较小，杯中表现需以具体批次判断。" },
+    { "id": "gesha", "name": "瑰夏（品种）", "species": "Coffea arabica variety", "summary": "属于阿拉比卡品种范畴；产地、种植、处理和烘焙同样决定最终表现。" }
+  ],
+  "brewing-guides": [
+    { "id": "v60-basic", "method": "手冲咖啡", "title": "V60 基础冲煮", "doseGrams": 15, "ratio": 15, "waterMl": 225, "temperatureC": 92, "steps": ["润湿滤纸并预热", "加入咖啡粉并整平", "注入 45ml 闷蒸", "分两段注入剩余热水", "记录总时间与风味"] },
+    { "id": "espresso-basic", "method": "意式浓缩", "title": "意式浓缩基线", "doseGrams": 18, "ratio": 2, "waterMl": 36, "temperatureC": 93, "steps": ["预热冲煮头", "均匀布粉压粉", "按液重结束", "记录时间和流速", "依据风味微调研磨"] },
+    { "id": "americano-basic", "method": "美式咖啡", "title": "热美式基础", "doseGrams": 18, "ratio": 8, "waterMl": 144, "temperatureC": 90, "steps": ["制作双份浓缩", "准备热水", "浓缩倒入热水", "混合后品饮"] },
+    { "id": "latte-basic", "method": "拿铁", "title": "拿铁基础", "doseGrams": 18, "ratio": 6, "waterMl": 108, "temperatureC": 65, "steps": ["制作浓缩", "牛奶进气", "旋转融合奶泡", "注入咖啡", "记录平衡"] },
+    { "id": "cappuccino-basic", "method": "卡布奇诺", "title": "卡布奇诺基础", "doseGrams": 18, "ratio": 5, "waterMl": 90, "temperatureC": 65, "steps": ["制作浓缩", "打发较厚但细腻奶泡", "融合后注入", "趁热品饮"] },
+    { "id": "cold-brew-basic", "method": "冷萃咖啡", "title": "冷萃基础", "doseGrams": 50, "ratio": 10, "waterMl": 500, "temperatureC": 6, "steps": ["粗研磨", "冷水充分润湿", "冷藏浸泡", "过滤", "冷藏并尽快饮用"] },
+    { "id": "french-press-basic", "method": "法压壶咖啡", "title": "法压壶基础冲煮", "doseGrams": 18, "ratio": 15, "waterMl": 270, "temperatureC": 92, "steps": ["加入较粗研磨咖啡粉", "均匀注水", "浸泡后轻柔破渣", "缓慢压下并立即倒出"] },
+    { "id": "moka-basic", "method": "摩卡壶咖啡", "title": "摩卡壶基础", "doseGrams": 18, "ratio": 7, "waterMl": 126, "temperatureC": 90, "steps": ["水不超过安全阀", "粉槽填平不压实", "中小火加热", "液流变浅前离火"] },
+    { "id": "aeropress-basic", "method": "爱乐压咖啡", "title": "爱乐压基础", "doseGrams": 15, "ratio": 14, "waterMl": 210, "temperatureC": 88, "steps": ["润洗滤纸", "加入咖啡与水", "轻搅后浸泡", "平稳压出"] },
+    { "id": "signature-basic", "method": "创意特调咖啡", "title": "创意特调记录框架", "doseGrams": 18, "ratio": 2, "waterMl": 36, "temperatureC": 93, "steps": ["确定咖啡基底", "记录每种可食用材料用量", "小份试调", "评估甜酸苦与香气", "保存版本而非覆盖原记录"] }
+  ],
+  "equipment": [
+    { "id": "espresso-machine", "category": "咖啡制作设备", "name": "半自动咖啡机", "principle": "受控温度与压力的水穿过压实粉床。", "maintenance": "冲洗冲煮头与粉碗，按设备手册反冲和除垢。" },
+    { "id": "auto-machine", "category": "咖啡制作设备", "name": "全自动咖啡机", "principle": "集成研磨、定量、冲煮和废渣收集。", "maintenance": "执行设备提示的冲洗、奶路清洁和除垢。" },
+    { "id": "capsule-machine", "category": "咖啡制作设备", "name": "胶囊咖啡机", "principle": "热水穿过预先研磨并密封的兼容胶囊。", "maintenance": "冲洗出水口和胶囊仓并按说明除垢。" },
+    { "id": "grinder", "category": "咖啡制作设备", "name": "磨豆机", "principle": "刀盘将咖啡豆研磨为目标粒径。", "maintenance": "断电后按设备说明清洁残粉。" },
+    { "id": "v60", "category": "手冲设备", "name": "V60 滤杯", "principle": "锥形结构、肋骨与大孔共同影响排气和流速。", "maintenance": "使用后及时冲洗并完全晾干。" },
+    { "id": "flatbed", "category": "手冲设备", "name": "蛋糕滤杯", "principle": "平底粉床与多孔底部帮助稳定排水。", "maintenance": "清洗底孔与沟槽并晾干。" },
+    { "id": "fan-dripper", "category": "手冲设备", "name": "扇形滤杯", "principle": "扇形壁面和底部孔位共同控制流速。", "maintenance": "冲洗沟槽、底孔和把手连接处。" },
+    { "id": "kettle", "category": "手冲设备", "name": "细口手冲壶", "principle": "细长壶嘴帮助控制流量和落点。", "maintenance": "倒空余水，晾干并按材质要求去除水垢。" },
+    { "id": "scale", "category": "手冲设备", "name": "咖啡电子秤", "principle": "同步记录重量与时间。", "maintenance": "保持称台干燥并避免超过量程。" },
+    { "id": "filter-paper", "category": "手冲设备", "name": "咖啡滤纸", "principle": "截留咖啡粉和部分油脂。", "maintenance": "一次性滤纸使用后妥善处理，存放时保持干燥无异味。" },
+    { "id": "french-press", "category": "其他器具", "name": "法压壶", "principle": "浸泡后用金属滤网分离咖啡液。", "maintenance": "拆洗滤网组件并去除夹层细粉。" },
+    { "id": "moka", "category": "其他器具", "name": "摩卡壶", "principle": "加热产生压力，将水推过粉槽。", "maintenance": "冷却后拆洗并检查密封圈与安全阀。" },
+    { "id": "aeropress", "category": "其他器具", "name": "爱乐压", "principle": "浸泡后以手动压力通过滤材。", "maintenance": "冲洗胶塞与筒体并检查密封件。" },
+    { "id": "siphon", "category": "其他器具", "name": "虹吸壶", "principle": "加热与冷却形成压力差，使水上升并回落过滤。", "maintenance": "冷却后清洗玻璃与滤器，避免骤冷骤热。" },
+    { "id": "milk-pitcher", "category": "其他器具", "name": "奶缸", "principle": "壶体与壶嘴帮助奶泡旋转融合和注流。", "maintenance": "使用后立即冲洗并去除奶垢。" }
+  ],
+  "recipes": [
+    { "id": "clean-v60", "name": "清晰型 V60", "category": "手冲", "method": "V60", "doseGrams": 15, "ratio": 15, "temperatureC": 92, "timeSeconds": 150, "steps": ["45ml 闷蒸", "注至 135ml", "注至 225ml"], "flavor": "以清晰度和均衡为调整目标" },
+    { "id": "flatbed-sweet", "name": "平底滤杯甜感杯", "category": "手冲", "method": "平底滤杯", "doseGrams": 15, "ratio": 16, "temperatureC": 93, "timeSeconds": 165, "steps": ["45ml 闷蒸", "两段注至 240ml", "轻晃粉床"], "flavor": "以甜感和圆润为调整目标" },
+    { "id": "espresso-balanced", "name": "浓缩平衡基线", "category": "意式", "method": "意式浓缩", "doseGrams": 18, "ratio": 2, "temperatureC": 93, "timeSeconds": 28, "steps": ["均匀布粉压粉", "目标液重 36g", "记录流速"], "flavor": "以酸甜苦协调为调整目标" },
+    { "id": "latte-balanced", "name": "平衡拿铁", "category": "奶咖", "method": "意式与蒸汽牛奶", "doseGrams": 18, "ratio": 6, "temperatureC": 65, "timeSeconds": 90, "steps": ["制作浓缩", "打发细腻奶泡", "融合并注入"], "flavor": "关注咖啡与牛奶甜感平衡" },
+    { "id": "cold-brew", "name": "基础冷萃", "category": "冷萃", "method": "浸泡", "doseGrams": 50, "ratio": 10, "temperatureC": 6, "timeSeconds": 43200, "steps": ["混合咖啡粉与饮用水", "冷藏浸泡", "过滤并冷藏保存"], "flavor": "根据豆子与浸泡时间调整浓度" },
+    { "id": "aeropress-clean", "name": "爱乐压清爽杯", "category": "经典咖啡", "method": "爱乐压", "doseGrams": 15, "ratio": 14, "temperatureC": 88, "timeSeconds": 120, "steps": ["加入咖啡与水", "浸泡并轻搅", "平稳压出"], "flavor": "以轻盈、清爽为调整目标" },
+    { "id": "moka-classic", "name": "摩卡壶经典基线", "category": "经典咖啡", "method": "摩卡壶", "doseGrams": 18, "ratio": 7, "temperatureC": 90, "timeSeconds": 180, "steps": ["水不超过安全阀", "粉槽填平", "中小火加热", "及时离火"], "flavor": "以浓郁且不过度焦苦为目标" },
+    { "id": "citrus-tonic", "name": "柑橘气泡咖啡记录模板", "category": "创意特调", "method": "浓缩与无糖气泡水", "doseGrams": 18, "ratio": 2, "temperatureC": 6, "timeSeconds": 60, "steps": ["杯中加入冰块与气泡水", "加入可食用柑橘装饰", "缓慢倒入浓缩", "记录各材料实际用量"], "flavor": "以清爽、酸甜平衡为目标；不预置品牌或健康功效" }
+  ]
+}

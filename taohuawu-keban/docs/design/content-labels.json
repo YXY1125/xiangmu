@@ -1,0 +1,24 @@
+{
+  "backgrounds": {
+    "bg_autumn_mountain": "秋山留白", "bg_canal_morning": "水巷初晴", "bg_color_layers": "叠色试印", "bg_handmade_paper": "花笺素纸",
+    "bg_jade_clouds": "豆青流云", "bg_koi_pond": "莲池听鲤", "bg_lantern_night": "桃灯良夜", "bg_modern_gallery": "印艺展廊",
+    "bg_moon_rooftop": "月上屋檐", "bg_peach_garden": "桃源春庭", "bg_print_studio": "小小印坊", "bg_snow_courtyard": "雪庭花信"
+  },
+  "festivals": {
+    "festival_double_ninth":"重阳登高", "festival_duanwu":"端午小舟", "festival_lantern":"元宵花灯", "festival_midautumn":"中秋望月",
+    "festival_qingming":"清明春游", "festival_qixi":"七夕星河", "festival_spring":"新春团圆", "festival_winter_solstice":"冬至暖意"
+  },
+  "stickers": {
+    "fan":"折扇", "seal":"花印", "scroll":"空白卷轴", "roller":"套色滚筒", "ink_bowl":"朱砂碗", "woodblock":"桃花木版", "baren":"拓印垫", "pigment":"颜料瓶", "brush":"画笔",
+    "butterfly":"蝴蝶", "koi":"锦鲤", "swallow":"燕子", "ginkgo":"银杏叶", "ribbon":"丝带", "bell":"花铃", "envelope":"祝福信封", "peach_blossoms":"桃花簇", "petals":"花瓣",
+    "peony":"牡丹", "lotus":"莲花", "osmanthus":"桂花", "plum_snow":"梅雪", "cloud":"祥云", "wave":"水浪", "moon":"月亮", "sun":"太阳", "stars":"星簇", "lantern":"桃灯", "knot":"花结", "tassel":"流苏"
+  },
+  "coreCharacters": {
+    "ip_taoyao": { "role":"平台主引导角色与工坊向导", "appearance":"花瓣形双环发髻，短款交领上衣与层叠裙，随身携带印艺小工具。", "costume":"桃粉交领短衫、奶油白层叠裙、豆青配饰与刻刀形吊饰。", "palette":["#F2A6B8","#FFF8F0","#A8C9AE","#D95C52"] },
+    "ip_tuantuan_rabbit": { "role":"生肖兔代表与配色伙伴", "appearance":"长耳兔体态、桃形额记，搭配收集色彩的圆盘挎包。", "costume":"短款节庆外套与十二色圆盘挎包。", "palette":["#FFF8F0","#A8C9AE","#F5D58A","#F2A6B8"] },
+    "ip_jilin_qilin": { "role":"祥瑞图鉴守护者", "appearance":"小型四足麒麟轮廓、珊瑚鬃、幼角与豆青鳞片。", "costume":"云纹披饰、桃花铃与印坊护具。", "palette":["#FFF8F0","#D95C52","#A8C9AE","#F5D58A"] },
+    "ip_afu_doll": { "role":"节庆节奏伙伴与作品规则引导", "appearance":"短发、活泼的节庆动作与双面节奏鼓。", "costume":"现代交领街头服、宽裤与桃结运动鞋。", "palette":["#D95C52","#F5D58A","#FFF8F0","#A8C9AE"] },
+    "ip_feili_koi": { "role":"好运主题与互动伙伴", "appearance":"圆润锦鲤体态、桃瓣长鳍与豆青波纹。", "costume":"波纹绶带与方形花印配饰。", "palette":["#D95C52","#F2A6B8","#FFF8F0","#A8C9AE"] },
+    "ip_ruiling_flower": { "role":"花鸟节气与构图伙伴", "appearance":"莲与牡丹组合花冠、叶脉翼和花瓣轮廓。", "costume":"花瓣披风与莲蓬印章配饰。", "palette":["#F2A6B8","#FFF8F0","#A8C9AE","#F5D58A"] }
+  }
+}

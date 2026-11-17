@@ -1,0 +1,9 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "咖啡研习间主模块" },
+    { "name": "EntryAbility_desc", "value": "企业数字化管理入口" },
+    { "name": "EntryAbility_label", "value": "咖啡研习间" },
+    { "name": "internet_reason", "value": "用于连接账号、咖啡知识和个人档案业务服务" },
+    { "name": "app_tracking_reason", "value": "用于获取匿名设备标识，统计应用活跃情况。拒绝不影响核心功能使用。" }
+  ]
+}

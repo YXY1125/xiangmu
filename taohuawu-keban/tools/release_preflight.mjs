@@ -1,0 +1,25 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const json=async file=>JSON.parse(await fs.readFile(path.join(root,file),'utf8'));
+const checkpoint=await json('docs/validation/CHECKPOINT.json');
+const checklist=await fs.readFile(path.join(root,'CHECKLIST.md'),'utf8');
+const legal=await fs.readFile(path.join(root,'app/entry/src/main/ets/models/LegalDocs.ets'),'utf8');
+const profile=await json('app/build-profile.json5'),seed=await json('db/seeds/001_content.json');
+let gateCChecklistExists=true;try{await fs.access(path.join(root,'docs/product/GATE_C.md'));}catch{gateCChecklistExists=false;}
+const blockers=[];
+if(checkpoint.checks.some(c=>c.exitCode!==0)||!checkpoint.build.successful||checkpoint.tests.exitCode!==0)blockers.push('Existing build, test or structural check failed.');
+if(!checkpoint.localPostgres||checkpoint.localPostgres.exitCode!==0)blockers.push('Actual isolated PostgreSQL verification not passed.');
+if(checkpoint.gateB!=='passed')blockers.push('V5.0 Gate B production/account/device delivery acceptance not passed.');
+if(checkpoint.gateC!=='passed'||!gateCChecklistExists)blockers.push('Gate C full visual/screenshots acceptance not passed.');
+if(!checkpoint.productionApiDeployed)blockers.push('App-specific SaaS26 production API route is not deployed/verified.');
+if(!checkpoint.productionAdminDeployed)blockers.push('Production administrator UI/authenticated moderation workflow is not deployed/verified.');
+if(/developmentDraft:\s*boolean\s*=\s*true/.test(legal))blockers.push('Legal documents remain development drafts; public contact, retention and hosting arrangements require operator confirmation.');
+if(seed.productionReleaseApproved!==true)blockers.push('Artwork/material production rights release is not approved.');
+if(!profile.app.signingConfigs.length)blockers.push('App-specific production signing certificate/Profile/ACL and signed release artifact are absent.');
+const outstanding=(checklist.match(/^- \[ \]/gm)||[]).length;
+if(outstanding)blockers.push(`${outstanding} existing delivery checklist items remain incomplete.`);
+const result={at:new Date().toISOString(),scope:'read-only evidence aggregation against existing V5.0 requirements; not a replacement Gate or AppGallery decision',status:blockers.length?'blocked':'requires-formal-release-review',releaseReady:false,localTests:checkpoint.tests.passed,localPostgresTests:checkpoint.localPostgres?.passed||0,productionMigrationExecuted:checkpoint.productionMigrationExecuted===true,productionDatabaseChecksPassed:checkpoint.productionDatabaseChecksPassed===true,productionApiDeployed:checkpoint.productionApiDeployed===true,productionApiTestsPassed:checkpoint.productionApiTests?.passed===true,productionAdminDeployed:checkpoint.productionAdminDeployed===true,productionChanged:checkpoint.productionMigrationExecuted===true||checkpoint.productionApiDeployed===true,blockers};
+await fs.writeFile(path.join(root,'docs/validation/release-preflight.json'),JSON.stringify(result,null,2)+'\n');
+console.log(JSON.stringify(result,null,2));process.exitCode=blockers.length?2:0;

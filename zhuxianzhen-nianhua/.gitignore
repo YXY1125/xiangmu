@@ -1,0 +1,60 @@
+# Editor and OS metadata
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# HarmonyOS build caches and generated outputs
+**/.hvigor/
+**/build/
+**/oh_modules/
+**/.ohpm/
+*.hap
+*.app
+*.har
+
+# Runtime and dependency directories
+.runtime/
+**/.runtime/
+**/node_modules/
+**/dist/
+**/coverage/
+**/__pycache__/
+
+# Local environment and signing material
+.env
+.env.*
+!.env.example
+*.local
+local.properties
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.pem
+*.key
+*.cer
+*.csr
+
+# Logs and temporary files
+*.log
+*.log.*
+*.pending
+*.tmp
+
+# Factory-only and internal operational records
+AppSpec.json
+APPSPEC_FREEZE.json
+GenerationRequest.json
+ProjectContract.md
+CHECKLIST.md
+FIX_LIST.md
+GATE_*
+artifacts.json
+docs/validation/
+docs/stages/
+docs/saas26-admin-access.md
+docs/delivery/*DEPLOYMENT_REPORT.md
+store/demo-account.md
+store/admin-account.md
+

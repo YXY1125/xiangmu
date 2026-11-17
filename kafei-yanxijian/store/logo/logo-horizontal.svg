@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 256" fill="none">
+  <rect x="0" y="0" width="1200" height="256" fill="#FFFFFF"/>
+  <g transform="translate(48,48) scale(0.22)">
+    <path fill="#ffffff" d="M298 245 H726 Q779 245 779 298 V726 Q779 779 726 779 H298 Q245 779 245 726 V298 Q245 245 298 245 Z"/>
+  </g>
+  <text x="280" y="168" font-family="PingFang SC, MiSans, Inter, sans-serif" font-size="88" font-weight="600" fill="#0a2540">咖啡研习间</text>
+</svg>

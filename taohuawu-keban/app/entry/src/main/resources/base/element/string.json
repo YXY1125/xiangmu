@@ -1,0 +1,9 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "桃花坞刻版主模块" },
+    { "name": "EntryAbility_desc", "value": "萌系国潮图鉴与数字创作入口" },
+    { "name": "EntryAbility_label", "value": "桃花坞刻版" },
+    { "name": "internet_reason", "value": "用于连接账号认证、公共文化内容和个人创作同步服务" },
+    { "name": "app_tracking_reason", "value": "用于获取匿名设备标识，统计应用活跃情况。拒绝不影响核心功能使用。" }
+  ]
+}

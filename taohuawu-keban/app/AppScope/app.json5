@@ -1,0 +1,10 @@
+{
+  "app": {
+    "bundleName": "thwkb.zy.huawei",
+    "vendor": "黑龙江省众富信息科技有限公司",
+    "versionCode": 1000000,
+    "versionName": "1.0.0",
+    "icon": "$media:app_icon",
+    "label": "$string:app_name"
+  }
+}

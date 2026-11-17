@@ -1,0 +1,11 @@
+{
+  "appName": "桃花坞刻版",
+  "brandAnchor": "桃",
+  "glyphStrategy": "semantic-fusion",
+  "keywords": ["Peach", "Carving", "Auspicious", "Playful", "Craft"],
+  "background": "#7B2F39",
+  "foreground": "#FFF8F0",
+  "symbolFile": "symbol.svg",
+  "horizontalFile": "logo-horizontal.svg",
+  "generator": "agent-svg"
+}

@@ -1,0 +1,9 @@
+{
+  "string": [
+    { "name": "module_desc", "value": "朱仙镇年画文化创意主模块" },
+    { "name": "EntryAbility_desc", "value": "传统年画文化展示、数字创作与互动体验入口" },
+    { "name": "EntryAbility_label", "value": "朱仙镇年画" },
+    { "name": "internet_reason", "value": "用于同步公开文化内容及用户主动登录后的跨端数据" },
+    { "name": "app_tracking_reason", "value": "经用户授权后用于应用活跃统计，不用于广告画像；拒绝不影响核心功能。" }
+  ]
+}

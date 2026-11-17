@@ -1,0 +1,14 @@
+{
+  "name": "kafyj.zy.huawei-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "COFFEE LAB tenant-isolated API runtime",
+  "type": "module",
+  "scripts": {
+    "start": "node runtime/server.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

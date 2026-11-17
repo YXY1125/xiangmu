@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 420" role="img" aria-labelledby="title">
+  <title id="title">花艺体验所横版标志</title>
+  <rect width="1500" height="420" fill="#FFF8EE"/>
+  <g transform="translate(56 28) scale(.355)" fill="#2E4938">
+    <ellipse cx="512" cy="346" rx="92" ry="154"/>
+    <ellipse cx="387" cy="414" rx="92" ry="154" transform="rotate(-56 387 414)"/>
+    <ellipse cx="637" cy="414" rx="92" ry="154" transform="rotate(56 637 414)"/>
+    <ellipse cx="425" cy="526" rx="86" ry="138" transform="rotate(-122 425 526)"/>
+    <ellipse cx="599" cy="526" rx="86" ry="138" transform="rotate(122 599 526)"/>
+    <circle cx="512" cy="454" r="72"/>
+    <path d="M402 566H622L594 756C589 789 561 814 528 814H496C463 814 435 789 430 756Z"/>
+  </g>
+  <text x="460" y="246" fill="#2E4938" font-family="HarmonyOS Sans SC, Noto Sans CJK SC, sans-serif" font-size="124" font-weight="650" letter-spacing="10">花艺体验所</text>
+</svg>

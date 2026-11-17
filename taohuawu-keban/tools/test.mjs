@@ -1,0 +1,15 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {spawn} from 'node:child_process';
+import './build_server.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const files=(await fs.readdir(path.join(root,'server/test'))).filter(f=>f.endsWith('.test.mjs')).sort().map(f=>path.join(root,'server/test',f));
+const run=spawn(process.execPath,['--test',...files],{stdio:['ignore','pipe','pipe']});
+let output='';for(const stream of [run.stdout,run.stderr])stream.on('data',chunk=>{output+=chunk;process.stdout.write(chunk);});
+const exitCode=await new Promise(resolve=>run.on('exit',resolve));
+await fs.mkdir(path.join(root,'docs/validation/tests'),{recursive:true});
+await fs.writeFile(path.join(root,'docs/validation/tests/server-tests.log'),output);
+const count=name=>Number(output.match(new RegExp(`(?:^|\\n)(?:#|ℹ)?\\s*${name}\\s+(\\d+)`))?.[1]||0);
+await fs.writeFile(path.join(root,'docs/validation/tests/server-run.json'),JSON.stringify({executedAt:new Date().toISOString(),command:'node apps/thwkb.zh.huawei/tools/test.mjs',exitCode,tests:count('tests'),passed:count('pass'),failed:count('fail'),scope:'local-business-and-actual-ArkTS-unit-tests-plus-HTTP-with-current-platform-auth-source',productionPostgresTested:false,deviceTested:false,gateBPassed:false},null,2)+'\n');
+process.exitCode=exitCode||0;

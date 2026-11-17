@@ -1,0 +1,18 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {pathToFileURL} from 'node:url';
+import {appRoot,repoRoot} from './remote_support.mjs';
+const admin=path.join(repoRoot,'platform/admin'),out=path.join(appRoot,'.runtime/admin-increment');
+const {build}=await import(pathToFileURL(path.join(admin,'node_modules/vite/dist/node/index.js')));
+const {default:vue}=await import(pathToFileURL(path.join(admin,'node_modules/@vitejs/plugin-vue/dist/index.mjs')));
+const bridge='/assets/thwkb-platform-bridge.js';
+const shared=['vue','vue-router','element-plus','@thwkb/platform-client'];
+const result=await build({configFile:false,root:admin,plugins:[{name:'thwkb-existing-platform-client',enforce:'pre',resolveId(id,importer){if(['../api/client','./client'].includes(id)&&importer?.split('?')[0].replaceAll('\\','/').match(/\/(ThwkbOperationsView\.vue|thwkb-client\.ts)$/))return {id:'@thwkb/platform-client',external:true};}},vue()],build:{outDir:out,emptyOutDir:false,reportCompressedSize:false,rollupOptions:{preserveEntrySignatures:'strict',input:path.join(admin,'src/views/ThwkbOperationsView.vue'),external:shared,output:{entryFileNames:'ThwkbOperationsView.js',assetFileNames:'[name]-[hash][extname]',paths:Object.fromEntries(shared.map(id=>[id,bridge]))}}}});
+const output=Array.isArray(result)?result.flatMap(r=>r.output):result.output;
+const entry=output.find(o=>o.type==='chunk'&&o.isEntry);
+if(!entry?.exports.includes('default')||Object.keys(entry.modules).some(p=>/node_modules\/(vue|@vue|vue-router|element-plus)|src\/api\/client\.ts|menu-registry\.ts/.test(p.replaceAll('\\','/'))))throw Error('Increment must preserve its component export and reuse the existing platform runtime/client');
+const imports=[...entry.code.matchAll(/import\s*\{([^}]+)\}\s*from\s*["']\/assets\/thwkb-platform-bridge\.js["']/g)].map(m=>m[1]);
+await fs.mkdir(path.join(appRoot,'docs/validation/admin'),{recursive:true});
+const report={at:new Date().toISOString(),successful:true,scope:'app component chunk compilation only; existing host bridge and menu promotion still required',sharedVueBundled:false,sharedClientBundled:false,sharedImports:imports,files:output.map(o=>o.fileName),runtimeBridgeReady:false,productionEntryReady:false,deployed:false,browserAccepted:false};
+await fs.writeFile(path.join(appRoot,'docs/validation/admin/increment-build.json'),JSON.stringify(report,null,2)+'\n');
+console.log(JSON.stringify(report,null,2));

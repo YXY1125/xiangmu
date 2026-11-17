@@ -1,0 +1,54 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import os from 'node:os';
+import vm from 'node:vm';
+import {fileURLToPath} from 'node:url';
+import {createRequire} from 'node:module';
+import {APP,FileRepository} from '../src/repository.mjs';
+import {ArtBusiness} from '../src/service.mjs';
+import {createDispatcher} from '../src/http.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../..'),repo=path.resolve(root,'../..');
+const require=createRequire(path.join(repo,'platform/server/package.json')),ts=require('typescript');
+const seed=JSON.parse(await fs.readFile(path.join(root,'db/seeds/001_content.json'),'utf8'));
+async function client(t){
+  const dir=await fs.mkdtemp(path.join(os.tmpdir(),'thwkb-admin-test-'));
+  t.after(async()=>{const real=await fs.realpath(dir),parent=await fs.realpath(os.tmpdir());assert.ok(path.dirname(real)===parent&&path.basename(real).startsWith('thwkb-admin-test-'));await fs.rm(real,{recursive:true,force:true});});
+  const business=new ArtBusiness(new FileRepository(path.join(dir,'state.json'),seed));
+  const identity={id:'test-admin',tenantId:APP,role:'tenant_admin'};
+  let session={tenantId:APP,role:'tenant_admin'},token='test-only-admin-session',requests=0;
+  const dispatch=createDispatcher({business,auth:{resolveAppSession:()=>null},resolveAdmin:()=>identity});
+  const invoke=async(method,url,body={})=>{requests++;try{return {data:{code:0,data:await dispatch({method,path:url,headers:{'x-tenant-id':APP,authorization:'Bearer test-only-admin-session'},body})}};}catch(error){return {data:{code:error.status*100+1,message:error.message,data:null}};}};
+  const source=await fs.readFile(path.join(repo,'platform/admin/src/api/thwkb-client.ts'),'utf8');
+  const js=ts.transpileModule(source,{compilerOptions:{module:ts.ModuleKind.CommonJS,target:ts.ScriptTarget.ES2021}}).outputText;
+  const module={exports:{}};vm.runInNewContext('(function(require,module,exports){'+js+'\n})')(()=>({getSession:()=>session,getToken:()=>token,http:{get:url=>invoke('GET',url),put:(url,body)=>invoke('PUT',url,body)}}),module,module.exports);
+  return {api:module.exports,business,identity,setSession:value=>{session=value;},setToken:value=>{token=value;},requests:()=>requests};
+}
+test('actual admin client uses scoped dispatcher for publication, feedback and content state',async t=>{
+  const f=await client(t),user={id:'test-creator',tenantId:APP,username:'creator'};
+  const creation=await f.business.saveCreation(user,{title:'审印测试作品',templateId:seed.entities.Template[0].id,status:'completed',revision:0,document:seed.entities.Template[0].baseLayers});
+  const work=await f.business.makeArtwork(user,creation.id,{copyrightDeclaration:'本应用授权素材'}),publication=await f.business.submit(user,work.id,{rightsConfirmed:true});
+  assert.equal((await f.api.thwkbList('Publication'))[0].id,publication.id);
+  await assert.rejects(f.api.thwkbAct('Publication',publication.id,{status:'approved'}),/版权/);
+  await f.api.thwkbAct('Publication',publication.id,{status:'approved',rightsChecked:true});
+  assert.equal((await f.business.detail('artworks',work.id,null)).reviewStatus,'approved');
+  const report=await f.business.report(user,work.id,{reasonCode:'copyright',description:'请求复核'});
+  await f.api.thwkbAct('Report',report.id,{status:'reviewing'});
+  await f.api.thwkbAct('Report',report.id,{status:'resolved',resolution:'权利复核成立',takeDown:true});
+  await assert.rejects(f.business.detail('artworks',work.id,null),e=>e.status===404);
+  const feedback=await f.business.feedback(user,{category:'suggestion',body:'建议增加工艺教学'});
+  await f.api.thwkbAct('Feedback',feedback.id,{status:'replied',reply:'已收到建议'});
+  assert.equal((await f.business.list('feedback',{},user)).items[0].reply,'已收到建议');
+  const material=seed.entities.Material[0];await f.api.thwkbAct('Material',material.id,{status:'offline'});
+  assert.equal((await f.api.thwkbList('Material')).find(row=>row.id===material.id).status,'offline');
+});
+test('actual admin client blocks wrong tenant, read-only writes and server permission rejection',async t=>{
+  const f=await client(t);f.setSession({tenantId:'other',role:'platform_super'});
+  await assert.rejects(f.api.thwkbList('Publication'),/租户/);assert.equal(f.requests(),0);
+  f.setSession({tenantId:APP,role:'tenant_operator'});
+  await assert.rejects(f.api.thwkbAct('Publication','id',{status:'approved',rightsChecked:true}),/仅可查看/);assert.equal(f.requests(),0);
+  f.setSession({tenantId:APP,role:'tenant_admin'});f.identity.tenantId='other';
+  await assert.rejects(f.api.thwkbList('Publication'),/权限/);
+  f.setToken('');await assert.rejects(f.api.thwkbList('Publication'),/租户/);
+});
